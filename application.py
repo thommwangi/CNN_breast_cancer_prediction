@@ -30,6 +30,7 @@ import os
 
 app=Flask(__name__)
 app.secret_key = os.environ.get('SECRET')
+
 ENV = 'dev'
 UPLOAD_FOLDER=r'C:\Users\mwangit\Desktop\projects\webapp\static\uploaded_images'
 
@@ -263,4 +264,4 @@ def logout():
 
 
 if __name__ == '__main__': 
-    app.run(debug=True)
+    app.run()
