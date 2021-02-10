@@ -1,0 +1,15 @@
+<!--creating a macro to simplify the code for creating the registration form-->
+
+{% macro displayField(fieldName, placeholderValue) %} 
+    <div class="form-group">
+        {{ fieldName(class_='form-control', placeholder=placeholderValue, **kwargs) }}
+         <!-- Error messages -->
+         <ul class="formError">
+
+        <!--displaying the error messages-->
+            {% for error in fieldName.errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endmacro %}

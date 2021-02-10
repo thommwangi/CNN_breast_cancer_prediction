@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Table V05</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<link rel="stylesheet" type="text/css" href="../static/bootstrap/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+</head>
+<body>
+
+<table class="table table-bordered table-hover align-middle">
+
+<thead class="table-dark">
+<tr>
+    <th scope="col" >Patient Name</th>
+    <th scope="col">Hospital</th>
+    <th scope="col">Gender</th>
+    <th scope="col">Phone Number</th>
+    <th scope="col">Mammogram</th>
+    <th scope="col">Diagnosis</th>
+</tr>
+</thead>
+<tbody>
+
+{% for item in patient_object %}
+    <tr >
+        <th scope="row">{{ item.patientname }}</th>
+        <td>{{ item.hospital }}</td>
+        <td>{{ item.gender }}</td>
+        <td>{{ item.phoneno }}</td>
+        <td>{{ item.image }}</td>
+        <td>{{ item.prediction }}</td>
+    </tr>
+{% endfor %}
+
+</tbody>
+</table>
+<div class="w3-center">
+<div class="w3-bar"">
+    <a href={{url_for('images')}} class="w3-button w3-green w3-padding-large">Back</a>
+ </div>
+
+ <div class="w3-container">
+    <a href={{url_for('logout')}} class="w3-button  w3-padding-large w3-red">Logout</a>
+ </div>
+</div>
+</body>
+</html>

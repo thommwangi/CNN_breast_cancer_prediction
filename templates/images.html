@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+   
+    <title>Breast Cancer Detection</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/styles/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/styles/form_upload.css" rel="stylesheet">
+  </head>
+
+  <body class="text-center">
+    <form action="{{ url_for('images') }}" ,class="form-upload" method="POST" enctype=multipart/form-data>
+   <!--   <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> -->
+      <h1 class="h3 mb-3 font-weight-normal">Please upload image</h1>
+
+
+      <!-- EXTRA FORM DETAILS-->
+
+  
+      <label for="patientname" class="sr-only">Patient Name</label>
+      <input type="text" id="patientname" name="patientname" class="form-control" placeholder="Patient Name" required autofocus>
+      <label for="hospital" class="sr-only">Hospital</label>
+      <input type="text" id="hospital" name="hospital" class="form-control" placeholder="Hospital Name" required>
+      <label for="gender" class="sr-only">Gender</label>
+      <input type="text" id="gender" name="gender" class="form-control" placeholder="Patient's Gender" required>
+      <label for="phoneno" class="sr-only">Phone Number</label>
+      <input type="tel" id="phoneno" name="phoneno" class="form-control" placeholder="Patient's Tel" required>
+
+
+      <!--EXTRA FORM DETAILS-->
+      <input type="file" id="image" name="image" class="form-control"  required >
+    
+      <button class="btn btn-lg btn-primary btn-block" value="Predict" type="submit">Predict</button> <br>
+      <p>Want to view your Previous images? <a href={{url_for('patients')}}>Click here</a>.</p>
+      {% if image_loc %}
+
+      <img class="mb-4" src="static/uploaded_images/{{image_loc}}" alt="" width="256" height="256">
+      <br>
+      <h3 name="predict" class="h3 mb-3 font-weight-normal">Prediction: {{prediction}}</h3>
+
+      {% endif %}
+    
+    </form>
+  </body>
+</html>
