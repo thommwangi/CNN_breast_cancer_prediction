@@ -264,4 +264,8 @@ def logout():
 
 
 if __name__ == '__main__': 
+<<<<<<< HEAD
     app.run()
+=======
+    app.run()
+>>>>>>> bd67a6126df3ef9bfbdeda2d18ab0c485434810f
